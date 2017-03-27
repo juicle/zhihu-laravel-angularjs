@@ -1,0 +1,123 @@
+/**{
+    background: rgba(0,0,0,0.05);
+}*/
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    background: #eee;
+}
+body h1{
+    margin-top:0;
+    font-size:18px;
+}
+.fl{
+   float:left;
+}
+.fr{
+   float:right;
+}
+.clearfix:before,
+.clearfix:after{
+   content:"";
+   clear:both;
+   display:table;
+}
+.navbar form{
+    display: inline-block;
+}
+.navbar{
+    background:#0767c8;
+    color:#fff;
+    padding:6px 0;
+}
+.navbar-item{
+    display:inline-block;
+    line-height: 2;
+    padding:2px 4px;
+}
+.navbar-item:first-child{
+    margin-left:4px;
+}
+.navbar-item:last-child{
+    margin-right:4px;
+}
+.navbar .brand{
+    font-size:20px;
+    padding-top:0;
+    line-height: 1;
+    font-weight:600;
+}
+.container{
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.container.signup,
+.container.signin,
+.container.question_add,
+.container.reset-password{
+    width: 600px;
+    margin-top:10px; 
+}
+
+[ui-sref]{
+    cursor: pointer;
+}
+form,label{
+    display: block;
+}
+label{
+    margin:4px 0;
+}
+.input-error-set{
+    color:#a10;
+    margin:4px 0;
+}
+
+.card{
+    display: block;
+    border-radius: 4px;
+    padding:10px 6px;
+    background: #fff;
+    box-shadow: 0 1px 2px 1px rgba(0,0,0,.5);
+}
+input{
+    width: 100%;
+    border:1px solid rgba(0,0,0,.1);
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    outline: none;
+}
+.input-group{
+    margin-bottom: 10px;
+}
+button{
+    border:1px solid rgba(0,0,0,.1);
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    background: #eee;
+}
+#quick_ask button,
+button.primary{
+    background:#0767c8;
+    color:#fff;
+    box-shadow:0 1px 2px rgba(0,0,0,.1);
+    -webkit-box-shadow:0 1px 2px rgba(0,0,0,.1);
+    -moz-box-shadow:0 1px 2px rgba(0,0,0,.1);
+}
+button[disabled]{
+   background: #eee;
+   color:#aaa; 
+}
+button,input{
+    padding:5px;
+}
+#quick_ask{
+
+}
