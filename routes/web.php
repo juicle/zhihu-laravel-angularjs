@@ -45,6 +45,10 @@ function comment_ins(){
     return new App\Http\Models\Comment;
 }
 
+function is_signin(){
+    return session('user') ? : false;
+}
+
 Route::get('/', function () {
     return view('index');
 });
