@@ -43,12 +43,62 @@
        </div>
     </body>
     <script type="text/ng-template" id="home.tpl">
-      <div class="home container">
-          首页Laravel 框架对系统环境有一些要求。当然，所有这些要求在 Laravel Homestead 虚拟机中都是预装好的：
-- PHP >= 5.5.9 - OpenSSL PHP 扩展 - PDO PHP 扩展 - Mbstring PHP 扩展 - Tokenizer PHP 扩展
-安装 LaravelLaravel 利用 Composer（Composer 中文）来管理其自身的依赖包。因此，在使用 Laravel 之前，请务必确保在你的机器上已经安装了 Composer 。如果你是下载“一键安装包”的话，可以暂时不用安装 Composer，等熟悉 Laravel 了再回头摸索，免得上来就遇到钉子。
-下载 Laravel 一键安装包安装 Composer 或通过 Composer 下载 Laravel 的依赖包时都可能被墙，为了方便大家学习和开发 Laravel 应用，Laravel 中文网已经提供了 Laravel 各个版本的一键安装包。这些一键安装包都已经集成了所有依赖（也就是已经执行过 composer install 了，vendor 目录已经就绪）。
-下载地址：http://www.golaravel.com/download/另外，一键安装包还包含了以下修改：
+      <div class="home container" style="padding-top:20px;">
+         <div class="left_content">
+             <h1>最新动态</h1>
+         <div class="hr"></div>
+         <div class="item-set">
+
+            <div class="item">
+              <div class="vote">
+
+              </div>
+              <div class="feed-item-content">
+                  <div class="content-act">某某某赞同了该回答</div>
+                  <div class="title">成功的大学四年生活是一种什么样的体验？</div>
+                  <div class="contet-owner">徐有容<span class="desc"> 一个爱吃爱玩的科学家 (๑•̀ㅂ</span></div>
+                  <div class="content-main"> 多图预警！ 坐标英国牛津大学，我可算是等到了这一题啊！好激动！我们学校的饭真的都超级良心，又便宜又好吃！而且颜值超高！感觉每天去食堂都很幸福啊！！完全颠覆了我对腐国饭菜难吃的偏见 ！当然是从我自己的学院Wadham College开始啦！因为我们学院没有…
+                  </div>
+                  <div class="action-set">
+                    <div class="comment">
+                    评论
+                    </div>
+                  </div>
+                  <div class="hr"></div>
+                  <div class="comment-block">
+                      <div class="comment-item-set">
+
+                          <div class="comment-item clearfix">
+                             <div class="user">
+                                 腐国的兔兔
+                             </div> 
+                             <div class="comment-content">
+                                 在牛津，中餐馆一顿大概一人20-30镑，西餐厅一顿brunch大概8镑，西餐厅午晚饭大概15-20镑一人。我们学院早饭1.5镑左右，午饭2.5镑左右，晚饭4镑。Formal dinner根据学院不同在2.5-12镑之间，guest night根据学院的不同在8-20镑之间。我们学院guest night最贵14.5镑。在英国这么高消费的地方，学院的饭已经很便宜了。
+                             </div> 
+                          </div>
+                          <div class="hr"></div>
+                          <div class="comment-item clearfix">
+                             <div class="user">
+                                 腐国的兔兔
+                             </div> 
+                             <div class="comment-content">
+                                 在牛津，中餐馆一顿大概一人20-30镑，西餐厅一顿brunch大概8镑，西餐厅午晚饭大概15-20镑一人。我们学院早饭1.5镑左右，午饭2.5镑左右，晚饭4镑。Formal dinner根据学院不同在2.5-12镑之间，guest night根据学院的不同在8-20镑之间。我们学院guest night最贵14.5镑。在英国这么高消费的地方，学院的饭已经很便宜了。
+                             </div> 
+                          </div>
+
+                      </div>
+                  </div>
+
+              </div>
+            </div>
+
+            
+         </div>
+         </div>
+         <div class="right_content">
+             asads
+         </div>
+         
       </div>
     </script>
 
