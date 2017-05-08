@@ -43,21 +43,20 @@
        </div>
     </body>
     <script type="text/ng-template" id="home.tpl">
-      <div class="home container" style="padding-top:20px;">
+      <div class="home container" style="padding-top:20px;"  ng-controller="HomeController"> 
          <div class="left_content">
              <h1>最新动态</h1>
          <div class="hr"></div>
          <div class="item-set">
 
-            <div class="item">
-              <div class="vote">
-
-              </div>
+            <div class="item" ng-repeat="item in TimeLine.data">
+              <div class="vote"></div>
               <div class="feed-item-content">
-                  <div class="content-act">某某某赞同了该回答</div>
-                  <div class="title">成功的大学四年生活是一种什么样的体验？</div>
-                  <div class="contet-owner">徐有容<span class="desc"> 一个爱吃爱玩的科学家 (๑•̀ㅂ</span></div>
-                  <div class="content-main"> 多图预警！ 坐标英国牛津大学，我可算是等到了这一题啊！好激动！我们学校的饭真的都超级良心，又便宜又好吃！而且颜值超高！感觉每天去食堂都很幸福啊！！完全颠覆了我对腐国饭菜难吃的偏见 ！当然是从我自己的学院Wadham College开始啦！因为我们学院没有…
+                  <div class="content-act" ng-if="item.question_id">[: item.user.username :]添加了回答</div>
+                  <div class="content-act" ng-if="!item.question_id">[: item.user.username :]添加了提问</div>
+                  <div class="title">[: item.title :]</div>
+                  <div class="contet-owner">[: item.user.username :]<span class="desc"> 一个爱吃爱玩的科学家 (๑•̀ㅂ</span></div>
+                  <div class="content-main"> [: item.desc :]
                   </div>
                   <div class="action-set">
                     <div class="comment">
@@ -67,7 +66,7 @@
                   <div class="hr"></div>
                   <div class="comment-block">
                       <div class="comment-item-set">
-
+                          <div class="rect"></div>
                           <div class="comment-item clearfix">
                              <div class="user">
                                  腐国的兔兔
@@ -91,6 +90,9 @@
 
               </div>
             </div>
+            <div class="tac" ng-if="TimeLine.pedding">加载中...</div>
+            <div class="tac" ng-if="TimeLine.nomoredata">没有更多数据了</div>
+            
 
             
          </div>
