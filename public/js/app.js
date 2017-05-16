@@ -104,6 +104,7 @@
        me.data = [];
        me.currentpage = 1;
        me.get = function(conf){
+           console.log(me.pedding);
            if (me.pedding) return;
            me.pedding = true;
            conf = conf || {page:me.currentpage};
@@ -149,6 +150,9 @@
         var $win;
         $scope.TimeLine = TimelineService;
         TimelineService.get();
+
+
+        
         $win = $(window);
         $win.on('scroll',function(){
           if($win.scrollTop() - ($(document).height() - $win.height()) > -30){

@@ -11,7 +11,7 @@
 |
 */
 function paginate($page=1, $limit=16){
-    $limit = $limit?:16;
+    $limit = $limit?:6;
     $skip = ($page?$page-1:0) * $limit;
     return [$limit,$skip];
 }
