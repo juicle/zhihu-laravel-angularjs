@@ -10,15 +10,15 @@
         $urlRouterProvider.otherwise('/home');
         $stateProvider.state('home',{
             url:'/home',
-            templateUrl:'home.tpl'
+            templateUrl:'tpl/page/home'
         });
         $stateProvider.state('login',{
             url:'/login',
-            templateUrl:'login.tpl'
+            templateUrl:'tpl/page/login'
         });
         $stateProvider.state('register',{
             url:'/register',
-            templateUrl:'register.tpl'
+            templateUrl:'tpl/page/register'
         });
         $stateProvider.state('question',{
             abstract:true,
@@ -104,10 +104,12 @@
        me.data = [];
        me.currentpage = 1;
        me.get = function(conf){
-           console.log(me.pedding);
            if (me.pedding) return;
-           me.pedding = true;
+           
            conf = conf || {page:me.currentpage};
+           if(!me.nomoredata){
+             me.pedding = true;
+           }
            $http.post('api/timeline',conf)
                  .then(function(r){
                     //console.log('r',r);
@@ -127,6 +129,7 @@
                  })
                  .finally(function(e){
                      me.pedding = false;
+                    
                  });
        }
     }])

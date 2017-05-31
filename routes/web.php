@@ -143,3 +143,7 @@ Route::any('api/comment/remove', function(){
 });
 
 Route::any('api/timeline', 'CommonController@timeline');
+
+Route::get('tpl/page/home', function(){
+  return view('page.home');
+});
