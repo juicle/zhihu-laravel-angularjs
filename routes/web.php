@@ -147,3 +147,17 @@ Route::any('api/timeline', 'CommonController@timeline');
 Route::get('tpl/page/home', function(){
   return view('page.home');
 });
+
+Route::get('tpl/page/login', function(){
+  return view('page.login');
+});
+
+Route::get('tpl/page/register', function(){
+  return view('page.register');
+});
+
+Route::get('tpl/page/question_add', function(){
+  return view('page.question_add');
+});
+
+
