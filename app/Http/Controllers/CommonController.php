@@ -17,7 +17,6 @@ class CommonController extends Controller
         
         $answers = answer_ins()
             ->with('users')
-            ->with('user')
             ->limit($limit)
             ->skip($skip)
             ->orderBy('created_at','desc')
@@ -35,8 +34,10 @@ class CommonController extends Controller
     }
 
     public function users(){
-        return $this->belongsToMany('APP\User')
+        return $this->belongsToMany('App\Http\Models\User')
                     ->withPivot('vote')
                     ->withTimestamps();
     }
+
+    
 }

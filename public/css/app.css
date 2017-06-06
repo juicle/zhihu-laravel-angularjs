@@ -114,6 +114,45 @@ body h1{
     color: #666;
     font-size: 13px;
 }
+.feed{
+    width:100%;
+}
+.feed.item .vote{
+    float:left;
+    width:10%;
+}
+.feed.item .vote > *{
+    background: #E0EEEE;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 3px;
+    margin-bottom:2px;
+    padding:2px;
+    margin-right:10px;
+}
+.feed.item .vote .up{
+    color:#259;
+    font-size:14px;
+    cursor: pointer;
+}
+.feed.item .vote .up:hover{
+    background: #0767c8;
+    color: #fff;
+}
+.feed.item .vote .down{
+    background:rgba(0,0,0,.1);
+    color:#555;
+    font-size:14px;
+    cursor: pointer;
+}
+.feed.item .vote .down:hover{
+    background:rgba(0,0,0,.5);
+    color: #fff;
+}
+.feed-item-content{
+    float:left;
+    width:90%;
+}
 
 .comment-item-set{
     padding:10px;

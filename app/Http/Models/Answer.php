@@ -60,7 +60,10 @@ class Answer extends Model{
            return ['status'=>0,'msg'=>'question id and id required'];
         }
         if(rq('id')){
-            $answer = $this->find(rq('id'));
+            $answer = $this
+              ->with('user')
+              ->with('users')
+              ->find(rq('id'));
             if(!$answer){
                 return ['status'=>0,'msg'=>'answer not exists'];
             }else{
@@ -124,5 +127,9 @@ class Answer extends Model{
            ->belongsToMany('App\Http\Models\User')
            ->withPivot('vote')
            ->withTimestamps();
+    }
+    public function user(){
+        return $this
+           ->belongsToMany('App\Http\Models\User');
     }
 }

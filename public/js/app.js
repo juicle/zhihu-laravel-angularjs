@@ -5,6 +5,7 @@
       'common',
       'user',
       'question',
+      'answer',
   ])
     .config(function($interpolateProvider,$stateProvider,$urlRouterProvider){
         $interpolateProvider.startSymbol('[:');
@@ -33,19 +34,6 @@
         });
         
     })
-    .controller('HomeController',['$scope','TimelineService',function($scope,TimelineService){
-        var $win;
-        $scope.TimeLine = TimelineService;
-        TimelineService.get();
-
-
-        
-        $win = $(window);
-        $win.on('scroll',function(){
-          if($win.scrollTop() - ($(document).height() - $win.height()) > -30){
-            TimelineService.get();
-          }
-        });
-    }])
+    
     
 })();
