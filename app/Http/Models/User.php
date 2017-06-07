@@ -157,19 +157,22 @@ class User extends Model{
     }
 
     public function user_info(){
+        
         if(!rq('id')){
             return err('id required');
         }
-        $exists = $this->find(rq('id'));
+        $id = rq('id') === 'self'?session('user')->id:rq('id');
+
+        $exists = $this->find($id);
         if(!$exists){
             return err('user not exists');
         }
         $get = ['id','username','avator_url','intro'];
-        $user = $this->find(rq('id'),$get);
+        $user = $this->find($id,$get);
         
         $data = $user->toArray();
         $answer_count = $user->answers()->count();
-        $question_count = question_ins()->where('user_id',rq('id'))->count();
+        $question_count = question_ins()->where('user_id',$id)->count();
         $data['answer_count'] = $answer_count;
         $data['question_count'] = $question_count;
         return ['status'=>1,'data'=>$data];

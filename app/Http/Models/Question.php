@@ -70,12 +70,28 @@ class Question extends Model{
         return $question->save() ?
             ['status'=>1, 'msg'=>'update success']:['status'=>0,'msg'=>'update failed'];
     }
+    
+    public function read_by_user_id($id){
+      $user = user_ins()->find($id);
+      if(!$user){
+          return err('user not exists');
+      }
+      $r = $this->where('user_id',$id)
+           ->get()
+           ->keyBy('id');
+      return suc($r->toArray()); 
+    }
+
 
     public function read(){
         if(rq('qid')){
             return ['status'=>1,'data'=>$this->find(rq('qid'))];
         }
-
+        
+        if(rq('user_id')){
+            $user_id = rq('user_id')==='self'?session('user')->id:rq('user_id');
+            return $this->read_by_user_id($user_id);    
+        }
         // $limit = rq('limit')?:15;
         // $skip = (rq('page')?rq('page') - 1 : 0) * $limit;
         list($limit,$skip) = paginage(rq('page'),rq('limit'));

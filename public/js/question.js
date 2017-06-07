@@ -23,6 +23,17 @@
                      console.log('e',e);
                  });
        }
+       me.getInfo = function(params){
+          return $http.post('api/question/read',params)
+                 .then(function(r){
+                   console.log(r)
+                   if(r.data.status){
+                     me.data = angular.merge({},me.data,r.data.data);   
+                     return r.data.data;
+                   }
+                   return false;
+                 });  
+        }
     }])
     .controller('QuestionController',['$scope','QuestionService',function($scope,QuestionService){
         $scope.Question = QuestionService;

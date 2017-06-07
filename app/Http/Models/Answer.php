@@ -55,9 +55,24 @@ class Answer extends Model{
 
     }
 
+    public function read_by_user_id($id){
+      $user = user_ins()->find($id);
+      if(!$user){
+          return err('user not exists');
+      }
+      $r = $this->where('user_id',$id)
+           ->get()
+           ->keyBy('id');
+      return suc($r->toArray()); 
+    }
+
     public function read(){
-        if(!rq('question_id')&&!rq('id')){
+        if(!rq('question_id') && !rq('id') && !rq('user_id')){
            return ['status'=>0,'msg'=>'question id and id required'];
+        }
+        if(rq('user_id')){
+            $user_id = rq('user_id')==='self'?session('user')->id:rq('user_id');
+            return $this->read_by_user_id($user_id);
         }
         if(rq('id')){
             $answer = $this
@@ -107,18 +122,28 @@ class Answer extends Model{
             return ['status'=>0,'msg'=>'id or vote required'];
         }
         $answer = $this->find(rq('id'));
+        
         if(!$answer){
             return ['status'=>0,'msg'=>'answer not exists'];
         }
-        $voteCount = rq('vote')<=1?1:2;
-        $vote = $answer
+
+        $vote = rq('vote');
+        if($vote !=1 && $vote !=2 && $vote!=3){
+            return ['status'=>0, 'msg'=>'invalid vote'];
+        }
+       
+        $answer
           ->users()
           ->newPivotStatement()
           ->where('user_id',session('user')->id)
           ->where('answer_id',rq('id'))
           ->delete();
+
+        if($vote==3){
+            return ['status'=>1];
+        }
         
-        $answer->users()->attach(session('user')->id,['vote'=>$voteCount]);
+        $answer->users()->attach(session('user')->id,['vote'=>$vote]);
         return ['status'=>1,'msg'=>'success'];
     }
 

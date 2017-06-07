@@ -1,6 +1,6 @@
 (function(){
   'use strict'
-  angular.module('user',[])
+  angular.module('user',['answer','question'])
     .service('UserService', ['$http','$state',function($http,$state){
         var me = this;
         me.signup_data = {};
@@ -45,6 +45,22 @@
                      console.log('e',e);
                  });
         }
+        me.getInfo = function(param){
+            $http.post('api/user/info',param)
+                 .then(function(r){
+                     console.log(r);
+                    if(r.data.status){
+                        if(param.id == "self"){
+                          me.self_data = r.data.data; 
+                        }else{
+                           me.data[param.id] = r.data.data;  
+                        }
+                        
+                    }
+                 },function(e){
+                     console.log('e',e);
+                 }); 
+        }
     }])
     .controller('SignupController',['$scope','UserService',function($scope,UserService){
         $scope.User = UserService;
@@ -58,5 +74,22 @@
     }])
     .controller('SigninController',['$scope','UserService',function($scope,UserService){
         $scope.User = UserService;
+    }])
+
+    .controller('UserController',['$scope','UserService','$stateParams','AnswerService','QuestionService',function($scope,UserService,$stateParams,AnswerService,QuestionService){
+        $scope.User = UserService;
+        UserService.getInfo($stateParams);
+        AnswerService.getInfo({user_id:$stateParams.id})
+          .then(function(r){
+              if(r){
+                 UserService.his_answers = r;
+              } 
+          });
+       QuestionService.getInfo({user_id:$stateParams.id})
+          .then(function(r){
+              if(r){
+                 UserService.his_questions = r;
+              } 
+          });   
     }])
 })();

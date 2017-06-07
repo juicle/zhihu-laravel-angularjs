@@ -1,5 +1,8 @@
 (function(){
   'use strict'
+  window.his = {
+      id:parseInt($('html').attr('userid'))
+  };
   angular.module('zhihu',[
       'ui.router',
       'common',
@@ -23,6 +26,10 @@
         $stateProvider.state('register',{
             url:'/register',
             templateUrl:'tpl/page/register'
+        });
+        $stateProvider.state('user',{
+            url:'/user/:id',
+            templateUrl:'tpl/page/user'
         });
         $stateProvider.state('question',{
             abstract:true,

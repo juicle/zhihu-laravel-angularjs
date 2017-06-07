@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}" ng-app="zhihu">
+<html lang="{{ config('app.locale') }}" ng-app="zhihu" userid="{{session('user')?session('user')->id:0}}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
